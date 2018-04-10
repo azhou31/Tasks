@@ -1,0 +1,27 @@
+<p>Search Tasks:
+    <input type="text" name="searchString" [(ngModel)]="searchString"
+    (keyup)="searchTasks()"
+    ></p>
+<div *ngFor="let task of shownTasks" class="tasks">
+
+<p>Title: {{task.title }}</p>
+<p>Description: {{task.description }} </p>
+<p><form (submit)="updateTask(x._id)">
+    <input type="submit" value="Update">
+</form>
+    <form (submit)="deleteTask(x._id)">
+        <input type="submit" value="Delete">
+    </form> </p>
+</div>
+<div *ngIf="x.showEditForm">
+    <form (submit) = "onEdit(x)" class="postForm">
+      {{x.title}}
+      <label>Title:
+        <input type="text" name="editTask.title" [(ngModel)] = "x.title" />
+      </label>
+      <label>Description:
+        <input type="text" name="editTask.description" [(ngModel)] = "x.description" />
+      </label>
+      <input type="submit" value="EDIT" />
+    </form>
+  </div>

@@ -1,0 +1,33 @@
+<h4>New Task</h4>
+
+<form (submit)="onSubmit()">
+  <p><label>Title</label>
+  <input
+    type="text"
+    name="title"
+    [(ngModel)]="task.title"
+    required
+    minlength="2"
+    maxlength="30"
+    #title="ngModel"
+  /> {{  title.errors | json }} </p>
+  
+  <p><label>Description</label>
+  <input
+    type="text"
+    name="description"
+    [(ngModel)]="task.description"
+    required
+    minlength="2"
+    maxlength="70"
+    #description="ngModel"
+  />
+  {{ description.errors | json }}</p>
+
+  <p><button
+
+  >
+    Submit
+  </button></p>
+
+</form>
